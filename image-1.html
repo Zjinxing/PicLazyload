@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>图片的懒加载</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    h2 {
+      text-align: center;
+    }
+    #ul {
+      position: relative;
+      width: 200px;
+      margin: 0 auto;
+      outline: 1px dashed #f00;
+      list-style: none;
+    }
+    #ul > li {
+      width: 180px;
+      /* height: 100px; */
+      margin-bottom: 20px;
+      outline: 1px dashed #0f0;
+    }
+    .img {
+      width: 100%;
+      /* height: 100%; */
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <h2>图片的懒加载(以下图片来源于蜂鸟网)</h2>
+    <ul id="ul">
+      <li><img class="img" data-src="https://bbs.qn.img-space.com/201812/16/6a37675a4dcf4e7d1163516810d2ebf2.jpg?imageView2/2/w/1800/q/100/ignore-error/1/" src="./placeholder.png"></li>
+      <li><img class="img" data-src="https://bbs.qn.img-space.com/201812/16/b08a8a51e80773c6b8983955221a9272.jpg?imageView2/2/w/1800/q/100/ignore-error/1/" src="./placeholder.png"></li>
+      <li><img class="img" data-src="https://bbs.qn.img-space.com/201812/16/617837a955c45889aeb0e52ca236b817.jpg?imageView2/2/w/1800/q/100/ignore-error/1/" src="./placeholder.png" ></li>
+      <li><img class="img" data-src="https://bbs.qn.img-space.com/201812/16/44b1dfd5fd8eaf80eddbd80860542217.jpg?imageView2/2/w/1800/q/100/ignore-error/1/" src="./placeholder.png" ></li>
+      <li><img class="img" data-src="https://bbs.qn.img-space.com/201812/16/2910bf1fa22df2f00c2d9c6a871ba1d8.jpg?imageView2/2/w/1800/q/100/ignore-error/1/" src="./placeholder.png" ></li>
+      <li><img class="img" data-src="https://bbs.qn.img-space.com/201812/16/c4b6c430a161263de9411f5393e89685.jpg?imageView2/2/w/1800/q/100/ignore-error/1/" src="./placeholder.png" ></li>
+      <li><img class="img" data-src="https://bbs.qn.img-space.com/201812/16/eed7547c1c75fe4e2ecdf6dfd679a3fa.jpg?imageView2/2/w/1800/q/100/ignore-error/1/" src="./placeholder.png" ></li>
+      <li><img class="img" data-src="https://bbs.qn.img-space.com/201812/16/236616713b6876d2fa90452cd166c89a.jpg?imageView2/2/w/1800/q/100/ignore-error/1/" src="./placeholder.png" ></li>
+      <li><img class="img" data-src="https://bbs.qn.img-space.com/201812/16/2894d81f84f9a31fe10b19490cf89e5c.jpg?imageView2/2/w/1800/q/100/ignore-error/1/" src="./placeholder.png" ></li>      
+      <li><img class="img" data-src="https://bbs.qn.img-space.com/201812/16/bbfc03b6067898180457162e9871f274.jpg?imageView2/2/w/1800/q/100/ignore-error/1/" src="./placeholder.png" ></li>
+      <li><img class="img" data-src="https://bbs.qn.img-space.com/201812/16/c3dd423fd6c5c97df5b00cef375b97ed.jpg?imageView2/2/w/1800/q/100/ignore-error/1/" src="./placeholder.png" ></li>
+      <li><img class="img" data-src="https://bbs.qn.img-space.com/201812/16/235e18cb828c6b9aa1c5ed8ca69a80b5.jpg?imageView2/2/w/1800/q/100/ignore-error/1/" src="./placeholder.png" ></li>
+      <li><img class="img" data-src="https://bbs.qn.img-space.com/201812/16/6cc6747512419d7595b04cf25c35fed8.jpg?imageView2/2/w/1800/q/100/ignore-error/1/" src="./placeholder.png" ></li>
+      <li><img class="img" data-src="https://bbs.qn.img-space.com/201812/16/6cc6747512419d7595b04cf25c35fed8.jpg?imageView2/2/w/1800/q/100/ignore-error/1/" src="./placeholder.png" ></li>
+      <li><img class="img" data-src="https://bbs.qn.img-space.com/201812/16/57f9b087f80c4fe4594d6c96ef370324.jpg?imageView2/2/w/1800/q/100/ignore-error/1/" src="./placeholder.png" ></li>
+      <li><img class="img" data-src="https://bbs.qn.img-space.com/201812/16/5c76ae288cb5b22a52a604f1a6ed3844.jpg?imageView2/2/w/1800/q/100/ignore-error/1/" src="./placeholder.png" ></li>
+      <li><img class="img" data-src="https://bbs.qn.img-space.com/201812/16/dd9c06dae009d77f599dc847835f2d63.jpg?imageView2/2/w/1800/q/100/ignore-error/1/" src="./placeholder.png" ></li>
+      <li><img class="img" data-src="https://bbs.qn.img-space.com/201812/16/5dbe90b9e42e3cf04f0f8ffdbf996ab3.jpg?imageView2/2/w/1800/q/100/ignore-error/1/" src="./placeholder.png" ></li>
+      <li><img class="img" data-src="https://bbs.qn.img-space.com/201812/16/132fa73111fcc657dedf0ed63b551ab2.jpg?imageView2/2/w/1800/q/100/ignore-error/1/" src="./placeholder.png" ></li>
+      <li><img class="img" data-src="https://bbs.qn.img-space.com/201812/16/1992072d5ae912798dff205647592a68.jpg?imageView2/2/w/1800/q/100/ignore-error/1/" src="./placeholder.png" ></li>
+    </ul>
+  </div>
+  <script>
+    function getOffsetByBody(el) {
+      let offsetTop = 0
+      while(el && el.tagName !== 'BODY') {
+        offsetTop += el.offsetTop
+        el = el.offsetParent
+      }
+      return offsetTop
+    }
+function lazyload() {
+      let img = document.getElementsByClassName('img')
+      let availHeight = window.screen.availHeight // 浏览器可用部分高度
+      let scrollTop = document.body.scrollTop || document.documentElement.scrollTop // 滚动隐藏的高度
+      for(let i = 0; i < img.length; i++) {
+      	let offsetTop = getOffsetByBody(img[i])
+        if(offsetTop - scrollTop < availHeight - 200) {  // 判断条件，当元素出现在视野范围内超出200px后执行下面操作
+          let src = img[i].getAttribute('data-src') // 获取真实地址
+          if(src) { // 如果获取到了 data-src 说明图片是第一次出现在视野内
+            img[i].setAttribute('src', src) // 将真实地址赋给图片的src属性
+            img[i].removeAttribute('data-src') // 移除data-src
+          }
+        }
+      }
+    }
+    window.onload = lazyload // 页面加载执行 lazyload
+    window.onscroll = lazyload // 监听滚动事件，滚动时执行lazyload
+  </script>
+</body>
+</html>
